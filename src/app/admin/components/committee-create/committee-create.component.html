@@ -1,0 +1,85 @@
+<form [formGroup]="form" (ngSubmit)="saveCommitte($event)">
+    <input type="hidden" formControlName="identification">
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>Comité</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <div class="row">
+                <div class="col-xs">
+                    <mat-form-field>
+                        <input matInput type="text" placeholder="Nombre" formControlName="name">
+                        <mat-error *ngIf="form.controls['name'].hasError('required')">
+                            Nombre es <strong>requerido</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs">
+                    <mat-form-field>
+                        <input matInput placeholder="Descripción" formControlName="description">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs">
+                    <mat-form-field>
+                        <input matInput placeholder="Presidente(a)" formControlName="president">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs">
+                    <mat-form-field>
+                        <input matInput placeholder="Vicepresidente" formControlName="vicepresident">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs">
+                    <mat-form-field>
+                        <input matInput placeholder="Secretario(a)" formControlName="secretary">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs">
+                    <mat-form-field>
+                        <input matInput placeholder="Tesorero(a)" formControlName="treasurer">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs">
+                    <mat-form-field>
+                        <input matInput placeholder="Vocal 1" formControlName="vocal1">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs">
+                    <mat-form-field>
+                        <input matInput placeholder="Vocal 2" formControlName="vocal2">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs">
+                    <mat-form-field>
+                        <input matInput placeholder="Vocal 2" formControlName="vocal3">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs">
+                    <img *ngIf="(urlImage$ | async) as image" [src]="image" alt="imagen">
+                    <input type="file" (change)="uploadFile($event)">
+                </div>
+            </div>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button [disabled]="form.invalid" type="submit">Guardar</button>
+        </mat-card-actions>
+    </mat-card>
+</form>

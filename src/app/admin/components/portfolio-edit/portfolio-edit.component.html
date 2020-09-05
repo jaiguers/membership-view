@@ -1,0 +1,84 @@
+<form [formGroup]="form" (ngSubmit)="updatePortfolio($event)">
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>Portafolio</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <div class="row">
+                <div class="col-xs">
+                    <mat-form-field>
+                        <input matInput type="text" placeholder="Nombre del negocio" formControlName="name">
+                        <mat-error *ngIf="form.controls['name'].hasError('required')">
+                            Nombre es <strong>requerido</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs">
+                    <mat-form-field>
+                        <input matInput placeholder="Nombre del representante" formControlName="agent">
+                        <mat-error *ngIf="form.controls['agent'].hasError('required')">
+                            representante es <strong>requerido</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs">
+                    <mat-form-field>
+                        <input matInput type="number" placeholder="Celular" formControlName="cellphone">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs">
+                    <mat-form-field>
+                        <input matInput placeholder="Email" formControlName="email">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs">
+                    <mat-form-field class="full-width">
+                        <mat-select placeholder="Presta el servicio como" formControlName="typeservice">
+                            <mat-option *ngFor="let serv of serviceAs" [value]="serv.id">
+                                {{ serv.text }}
+                            </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="form.controls['typeservice'].hasError('required')">
+                            El tipo de servicio es <strong>requerido</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs">
+                    <mat-form-field>
+                        <input matInput placeholder="Red social" formControlName="socialnetwork">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs">
+                    <mat-form-field>
+                        <input matInput placeholder="Sitio web" formControlName="urlwebsite">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs">
+                    <mat-form-field>
+                        <textarea matInput placeholder="Descripción" formControlName="description"></textarea>
+                        <mat-error *ngIf="form.controls['description'].hasError('required')">
+                            La descripción es <strong>requerida</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button [disabled]="form.invalid" type="submit">Guardar</button>
+        </mat-card-actions>
+    </mat-card>
+</form>

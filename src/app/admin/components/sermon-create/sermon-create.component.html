@@ -1,0 +1,58 @@
+<form [formGroup]="form" (ngSubmit)="saveSermon($event)">
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>Predica</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <div class="row">
+                <div class="col-xs">
+                    <mat-form-field>
+                        <input matInput type="text" placeholder="Titulo predica" formControlName="title">
+                        <mat-error *ngIf="form.controls['title'].hasError('required')">
+                            Titulo es <strong>requerido</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs">
+                    <mat-form-field>
+                        <input matInput placeholder="Predicador" formControlName="preacher">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs">
+                    <mat-form-field>
+                        <input matInput placeholder="Fecha predica" formControlName="sermondate"
+                            [matDatepicker]="picker">
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs">
+                    <mat-form-field>
+                        <input matInput placeholder="Descripción" formControlName="description">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs">
+                    <mat-form-field>
+                        <input matInput placeholder="Url archivo" formControlName="urlfile">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs">
+                    <input type="file" (change)="uploadFile($event)">
+                </div>
+            </div>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button [disabled]="form.invalid" type="submit">Guardar</button>
+        </mat-card-actions>
+    </mat-card>
+</form>

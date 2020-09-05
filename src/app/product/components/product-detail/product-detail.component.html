@@ -1,0 +1,20 @@
+<div *ngIf="product">
+    <div class="crop-image">
+        <img [src]="product.urlimage" alt="imagen">
+    </div>
+    <div>
+        <ul>
+            <li><strong> Nombre: </strong> {{ product.name }}</li>
+            <li><strong>Telefono: </strong> {{ product.cellphone }}</li>
+            <li><strong>Email: </strong>{{ product.email }}</li>
+            <li>
+                <strong>Sitio web: </strong>
+                <a [href]="product.urlwebsite" target="_blank">{{ product.urlwebsite }}</a>
+            </li>
+            <li>
+                <strong>Red social: </strong>
+                <a [href]="product.socialnetwork" target="_blank"> {{ product.socialnetwork }} </a></li>
+        </ul>
+        <p>{{ product.description }}</p>
+    </div>
+</div>

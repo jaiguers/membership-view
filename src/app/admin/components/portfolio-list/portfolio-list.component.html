@@ -1,0 +1,38 @@
+<a mat-raised-button routerLink="create" class="class-down">Crear nuevo portafolio</a>
+
+<div class="example-container mat-elevation-z8 products-table">
+    <mat-table matTableExporter #exporter="matTableExporter" [dataSource]="portfolios">
+        <ng-container matColumnDef="agent">
+            <mat-header-cell *matHeaderCellDef> Nombres </mat-header-cell>
+            <mat-cell *matCellDef="let portfolio"> {{portfolio.agent}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="cellphone">
+            <mat-header-cell *matHeaderCellDef> Celular </mat-header-cell>
+            <mat-cell *matCellDef="let portfolio"> {{ portfolio.cellphone }} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="email">
+            <mat-header-cell *matHeaderCellDef> Email </mat-header-cell>
+            <mat-cell *matCellDef="let portfolio"> {{ portfolio.email }} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="socialnetwork">
+            <mat-header-cell *matHeaderCellDef> Red social </mat-header-cell>
+            <mat-cell *matCellDef="let portfolio"> {{ portfolio.socialnetwork }} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="urlwebsite">
+            <mat-header-cell *matHeaderCellDef> Sitio web </mat-header-cell>
+            <mat-cell *matCellDef="let portfolio"> {{ portfolio.urlwebsite }} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="actions">
+            <mat-header-cell *matHeaderCellDef> acciones </mat-header-cell>
+            <mat-cell *matCellDef="let portfolio">
+                <button mat-raised-button [routerLink]="['edit', portfolio.identification]">Editar</button>
+                <!-- <button mat-raised-button (click)="deleteMember(member.identification)" color="warn">Eliminar</button> -->
+            </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+</div>

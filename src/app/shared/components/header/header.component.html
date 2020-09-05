@@ -1,0 +1,41 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+        <div class="menu-btn" (click)="showMenu()">
+            <mat-icon>menu</mat-icon>
+            <!--<i class="material-icons"></i>-->
+        </div>
+        <div class="container">
+            <div class="row between-xs middle-xs header-row">
+                <nav class="nav-main">
+                    <button mat-button routerLink="/" routerLinkActive="active">
+                        <img src="assets/images/logo.png" alt="Logo" class="nav-brand">
+                    </button>
+                    <ul class="nav-menu">
+                        <li><a mat-button routerLink="/home" routerLinkActive="active">Inicio</a></li>
+                        <li><a mat-button routerLink="/ipuc-san-judas" routerLinkActive="active">Nosotros</a></li>
+                        <li>
+                            <button mat-button [matMenuTriggerFor]="menu">Comités</button>
+                            <mat-menu #menu="matMenu">
+                                <a mat-menu-item *ngFor=" let committee of committees"
+                                    [routerLink]="['/committees', committee.identification]"
+                                    routerLinkActive="active">{{committee.name}}</a>
+                            </mat-menu>
+                        </li>
+                        <li>
+                            <a mat-button routerLink="/preach" routerLinkActive="active">Predicas</a>
+                        </li>
+                        <li><a mat-button routerLink="/products" routerLinkActive="active">Portafolio de Hnos</a></li>
+                        <li><a mat-button routerLink="/contact" routerLinkActive="active">Contacto</a></li>
+                    </ul>
+
+                </nav>
+                <a routerLink="/auth/login" mat-raised-button>
+                    <mat-icon>login</mat-icon>
+                    Login
+                </a>
+            </div>
+        </div>
+
+
+    </mat-toolbar-row>
+</mat-toolbar>

@@ -1,0 +1,29 @@
+<a mat-raised-button routerLink="create" class="class-down">Crear nueva predica</a>
+
+<div class="example-container mat-elevation-z8 products-table">
+    <mat-table matTableExporter #exporter="matTableExporter" [dataSource]="sermons">
+        <ng-container matColumnDef="title">
+            <mat-header-cell *matHeaderCellDef> Título </mat-header-cell>
+            <mat-cell *matCellDef="let sermon"> {{sermon.title}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="preacher">
+            <mat-header-cell *matHeaderCellDef> Predicador </mat-header-cell>
+            <mat-cell *matCellDef="let sermon"> {{ sermon.preacher }} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="sermondate">
+            <mat-header-cell *matHeaderCellDef> Fecha de la predica </mat-header-cell>
+            <mat-cell *matCellDef="let sermon"> {{ sermon.sermondate }} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="actions">
+            <mat-header-cell *matHeaderCellDef> acciones </mat-header-cell>
+            <mat-cell *matCellDef="let member">
+                <button mat-raised-button [routerLink]="['edit', member.identification]">Editar</button>
+                <!-- <button mat-raised-button (click)="deleteMember(member.identification)" color="warn">Eliminar</button> -->
+            </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+</div>

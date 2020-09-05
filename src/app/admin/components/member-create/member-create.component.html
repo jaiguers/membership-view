@@ -1,0 +1,306 @@
+<form [formGroup]="form" (ngSubmit)="saveMember($event)">
+    <input type="hidden" formControlName="identification">
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>Miembro</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <div class="row">
+                <div class="col-xs">
+                    <mat-form-field>
+                        <input matInput type="text" placeholder="Nombres" formControlName="names">
+                        <mat-error *ngIf="form.controls['names'].hasError('required')">
+                            Nombres es <strong>requerido</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs">
+                    <mat-form-field>
+                        <input matInput placeholder="Primer apellido" formControlName="surname">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs">
+                    <mat-form-field>
+                        <input matInput placeholder="Segundo apellido" formControlName="secondsurname">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs">
+                    <mat-form-field>
+                        <input matInput placeholder="identificación" formControlName="numberid">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs">
+                    <mat-form-field>
+                        <input matInput placeholder="Fecha nacimiento" [matDatepicker]="picker"
+                            formControlName="birthdate">
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs">
+                    <mat-form-field>
+                        <input matInput placeholder="Lugar de nacimiento" formControlName="placeofbirth">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs">
+                    <mat-form-field>
+                        <input matInput placeholder="Dirección" formControlName="address">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs">
+                    <mat-form-field>
+                        <input matInput placeholder="Barrio" formControlName="neighborhood">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs">
+                    <mat-form-field>
+                        <input matInput placeholder="email" formControlName="email">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs">
+                    <mat-form-field>
+                        <input matInput placeholder="Teléfono" formControlName="phone">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs">
+                    <mat-form-field>
+                        <input matInput placeholder="Celular" formControlName="mobile">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs">
+                    <mat-form-field class="full-width">
+                        <mat-select placeholder="Estado civil" formControlName="idmaritalstatus">
+                            <mat-option *ngFor="let marital of maritals" [value]="marital.identification">
+                                {{ marital.name }}
+                            </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="form.controls['idmaritalstatus'].hasError('required')">
+                            State is <strong>required</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs">
+                    <mat-form-field class="full-width">
+                        <mat-select placeholder="Nivel educativo" formControlName="ideducation">
+                            <mat-option *ngFor="let education of educations" [value]="education.identification">
+                                {{ education.description }}
+                            </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="form.controls['ideducation'].hasError('required')">
+                            State is <strong>required</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs">
+                    <mat-form-field class="full-width">
+                        <mat-select placeholder="Vivienda" formControlName="idlivingplace">
+                            <mat-option *ngFor="let liv of living" [value]="liv.identification">
+                                {{ liv.name }}
+                            </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="form.controls['idlivingplace'].hasError('required')">
+                            State is <strong>required</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs">
+                    <mat-form-field class="full-width">
+                        <mat-select placeholder="Bautizado" formControlName="baptized">
+                            <mat-option *ngFor="let yn of yesNot" [value]="yn.id">
+                                {{ yn.name }}
+                            </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="form.controls['baptized'].hasError('required')">
+                            State is <strong>required</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs">
+                    <mat-form-field>
+                        <input matInput placeholder="Fecha de bautismo" formControlName="baptismdate">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs">
+                    <mat-form-field>
+                        <input matInput placeholder="Ciudad de bautismo" formControlName="baptismcity">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs">
+                    <mat-form-field>
+                        <input matInput placeholder="Pastor que lo bautizó" formControlName="pastorbaptized">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs">
+                    <mat-form-field class="full-width">
+                        <mat-select placeholder="Promesado" formControlName="promised">
+                            <mat-option *ngFor="let yn of yesNot" [value]="yn.id">
+                                {{ yn.name }}
+                            </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="form.controls['promised'].hasError('required')">
+                            State is <strong>required</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs">
+                    <mat-form-field>
+                        <input matInput placeholder="Fecha Espiritu Santo" formControlName="holyspiritdate">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs">
+                    <mat-form-field>
+                        <input matInput placeholder="Profesión" formControlName="profession">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs">
+                    <mat-form-field>
+                        <input matInput placeholder="Ocupación" formControlName="occupation">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs">
+                    <mat-form-field>
+                        <input matInput placeholder="EPS" formControlName="eps">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs">
+                    <mat-form-field>
+                        <input matInput placeholder="Sisben" formControlName="sisben">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs">
+                    <mat-form-field class="full-width">
+                        <mat-select placeholder="Recibe ayuda?" formControlName="gethelp">
+                            <mat-option *ngFor="let yn of yesNot" [value]="yn.id">
+                                {{ yn.name }}
+                            </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="form.controls['promised'].hasError('required')">
+                            State is <strong>required</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs">
+                    <mat-form-field>
+                        <input matInput placeholder="De quien?" formControlName="whohelps">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs">
+                    <mat-form-field>
+                        <input matInput placeholder="Servicio funeral" formControlName="funeralservice">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs">
+                    <mat-form-field>
+                        <input matInput placeholder="Facebook" formControlName="facebook">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs">
+                    <mat-form-field>
+                        <input matInput placeholder="Twitter" formControlName="twitter">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs">
+                    <mat-form-field>
+                        <input matInput placeholder="Pensión" formControlName="pension">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs">
+                    <mat-form-field>
+                        <input matInput placeholder="Nombre cónyugue" formControlName="spouse">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs">
+                    <mat-form-field>
+                        <input matInput placeholder="Número de hijos" formControlName="numberchildren">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs">
+                    <mat-form-field>
+                        <input matInput placeholder="Con cuantos vive" formControlName="manylives">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs">
+                    <mat-form-field>
+                        <input type="number" matInput placeholder="Personas a cargo" formControlName="dependents">
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs">
+                    <img *ngIf="(urlImage$ | async) as image" [src]="image" alt="imagen">
+                    <input type="file" (change)="uploadFile($event)">
+                </div>
+            </div>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button [disabled]="isValid" type="submit">Guardar</button>
+        </mat-card-actions>
+    </mat-card>
+</form>

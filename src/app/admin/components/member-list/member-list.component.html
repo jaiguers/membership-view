@@ -1,0 +1,102 @@
+<a mat-raised-button routerLink="create" class="class-down">Crear nuevo miembro</a>
+<a role="button" mat-raised-button color="primary" class="left-button class-down" routerLink="exporthnos">Exportar</a>
+
+<mat-form-field>
+    <mat-label>Filtro</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Ej: pregrado" #input>
+</mat-form-field>
+<div class="example-container mat-elevation-z8 products-table">
+    <mat-table matTableExporter #exporter="matTableExporter" [dataSource]="dataSource">
+        <ng-container matColumnDef="names" sticky>
+            <mat-header-cell *matHeaderCellDef> Nombres </mat-header-cell>
+            <mat-cell *matCellDef="let member"> {{member.names}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="surname">
+            <mat-header-cell *matHeaderCellDef> Apellidos </mat-header-cell>
+            <mat-cell *matCellDef="let member"> {{ member.surname +' '+ member.secondsurname}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="email">
+            <mat-header-cell *matHeaderCellDef> Correo electrónico </mat-header-cell>
+            <mat-cell *matCellDef="let member"> {{member.email}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="numberid">
+            <mat-header-cell *matHeaderCellDef> identificacion </mat-header-cell>
+            <mat-cell *matCellDef="let member"> {{member.numberid}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="birthdate">
+            <mat-header-cell *matHeaderCellDef> F. nacimiento </mat-header-cell>
+            <mat-cell *matCellDef="let member"> {{member.birthdate | date:'dd/MM/yyyy'}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="maritalstatus">
+            <mat-header-cell *matHeaderCellDef> Estado civil </mat-header-cell>
+            <mat-cell *matCellDef="let member"> {{member.maritalstatus.name}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="baptized">
+            <mat-header-cell *matHeaderCellDef> Bautismo </mat-header-cell>
+            <mat-cell *matCellDef="let member"> {{member.baptized === 1 ? 'Si':'No'}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="mobile">
+            <mat-header-cell *matHeaderCellDef> Celular </mat-header-cell>
+            <mat-cell *matCellDef="let member"> {{member.mobile}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="education">
+            <mat-header-cell *matHeaderCellDef> Nivel educativo </mat-header-cell>
+            <mat-cell *matCellDef="let member"> {{member.education.description}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="profession">
+            <mat-header-cell *matHeaderCellDef> Profesión </mat-header-cell>
+            <mat-cell *matCellDef="let member"> {{member.profession}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="livingplace">
+            <mat-header-cell *matHeaderCellDef> Tipo vivienda </mat-header-cell>
+            <mat-cell *matCellDef="let member"> {{member.livingplace.name}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="eps">
+            <mat-header-cell *matHeaderCellDef> EPS </mat-header-cell>
+            <mat-cell *matCellDef="let member"> {{member.eps}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="sisben">
+            <mat-header-cell *matHeaderCellDef> Sisben </mat-header-cell>
+            <mat-cell *matCellDef="let member"> {{member.sisben}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="gethelp">
+            <mat-header-cell *matHeaderCellDef> Recibe ayuda? </mat-header-cell>
+            <mat-cell *matCellDef="let member"> {{member.gethelp === 1 ? 'Si':'No'}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="whohelps">
+            <mat-header-cell *matHeaderCellDef> Quien ayuda</mat-header-cell>
+            <mat-cell *matCellDef="let member"> {{member.whohelps}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="funeralservice">
+            <mat-header-cell *matHeaderCellDef> Serv exequial</mat-header-cell>
+            <mat-cell *matCellDef="let member"> {{member.funeralservice}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="pension">
+            <mat-header-cell *matHeaderCellDef> Pensión</mat-header-cell>
+            <mat-cell *matCellDef="let member"> {{member.pension}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="numberchildren">
+            <mat-header-cell *matHeaderCellDef> Número hijos</mat-header-cell>
+            <mat-cell *matCellDef="let member"> {{member.numberchildren}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="spouse">
+            <mat-header-cell *matHeaderCellDef> Cónyugue</mat-header-cell>
+            <mat-cell *matCellDef="let member"> {{member.spouse}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="pastorbaptized">
+            <mat-header-cell *matHeaderCellDef> Pastor baut.</mat-header-cell>
+            <mat-cell *matCellDef="let member"> {{member.pastorbaptized}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="actions">
+            <mat-header-cell *matHeaderCellDef> acciones </mat-header-cell>
+            <mat-cell *matCellDef="let member">
+                <button mat-raised-button [routerLink]="['edit', member.id]">Editar</button>
+                <!-- <button mat-raised-button (click)="deleteMember(member.identification)" color="warn">Eliminar</button> -->
+            </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+</div>

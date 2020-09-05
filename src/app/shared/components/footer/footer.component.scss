@@ -1,0 +1,55 @@
+@import '~@angular/material/theming';
+
+$primary: mat-palette($mat-indigo);
+
+footer {
+  padding: 50px 0px;
+  margin-top: 20px;
+  background-color: mat-color($primary);
+  .box {
+    h3 {
+      color: white;
+    }
+    input{
+      color: white;
+    }
+    ul {
+      list-style: none;
+      margin: 0px;
+      padding: 0px;
+      li {
+        margin: 10px 0px;
+        a {
+          text-decoration: none;
+          color: white;
+          span{
+            img{
+              width: 10%;
+            }
+          }
+        }
+        span {
+          text-decoration: none;
+          color: white;
+        }
+      }
+    }
+  }
+}
+
+.icon-box{
+  margin: 5px;
+}
+
+.footer {
+  color:#fff;
+  font-size: 12px;
+  padding: 20px 0;
+  text-align: center;
+  font-size: 1rem;
+  padding-bottom: 20px;
+}
+
+.footer a{
+  color:#fff;
+}

@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "tienda-d15c7"
+  },
+  "targets": {
+    "tienda-d15c7": {
+      "hosting": {
+        "tienda": [
+          "tienda-d15c7"
+        ]
+      }
+    }
+  }
+}

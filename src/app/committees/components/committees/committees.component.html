@@ -1,0 +1,40 @@
+<div class="container" *ngIf="committee">
+    <h3>{{committee.name}}</h3>
+    <div class="row">
+        <img [src]="committee.image" alt="imagen">
+    </div>
+    <div class="row">
+        <p>{{committee.description}}</p>
+    </div>
+
+    <div class="row">
+        <div *ngIf="committee.identification === 1">
+            <p>
+                <strong>Presidente:</strong> {{ committee.president }} <br>
+                <strong>Secretaria:</strong> {{ committee.secretary }}<br>
+                <strong>Tesorero:</strong> {{ committee.treasurer }}<br>
+
+                <strong>Diácono:</strong> {{ committee.vocal1 }}<br>
+                <strong>Diácono:</strong> {{ committee.vocal2 }}<br>
+                <strong>Diácono:</strong> {{ committee.vocal3 }}
+
+
+            </p>
+        </div>
+
+        <div *ngIf="committee.identification !== 1">
+            <p>
+                <strong>Presidente:</strong> {{ committee.president }} <br>
+                <strong>Secretaria:</strong> {{ committee.secretary }}<br>
+                <strong>Tesorero:</strong> {{ committee.treasurer }}<br>
+
+                <strong *ngIf="committee.vocal1">Vocal:</strong> {{ committee.vocal1 }}<br>
+                <strong *ngIf="committee.vocal2">Vocal:</strong> {{ committee.vocal2 }}<br>
+                <strong *ngIf="committee.vocal3">Vocal:</strong> {{ committee.vocal3 }}
+
+
+            </p>
+        </div>
+    </div>
+
+</div>

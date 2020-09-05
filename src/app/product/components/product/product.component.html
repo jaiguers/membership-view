@@ -1,0 +1,15 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>{{ product.name | uppercase }}</mat-card-title>
+        <mat-card-subtitle>{{ product.cellphone }}</mat-card-subtitle>
+    </mat-card-header>
+    <div class="crop-image">
+        <img [src]="product.urlimage" alt="imagen">
+    </div>
+    <mat-card-content>
+        <p>{{ product.description | slice:0:45 }}</p>
+    </mat-card-content>
+    <mat-card-actions>
+        <a mat-raised-button [routerLink]="['/products', product.url+'_'+product.identification]">Ver detalle</a>
+    </mat-card-actions>
+</mat-card>

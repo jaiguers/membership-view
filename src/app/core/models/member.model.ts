@@ -1,0 +1,31 @@
+export class Member {
+    identification: number;
+    names: string;
+    surname: string;
+    secondsurname: string;
+    numberid: string;
+    birthdate: string;
+    address: string;
+    email: string;
+    phone: string;
+    mobile: string;
+    idmaritalstatus: number;
+    ideducation: number;
+    idlivingplace: number;
+    baptized: number;
+    promised: number;
+    profession: string;
+    eps: string;
+    sisben: string;
+    image: string;
+    gethelp: string;
+    whohelps: string;
+    funeralservice: string;
+    facebook: string;
+    twitter: string;
+    pension: string;
+    spouse: string;
+    pastorbaptized: string;
+    numberchildren: number;
+    state: number;
+}
