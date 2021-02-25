@@ -5,6 +5,7 @@ import { MatTableDataSource } from '@angular/material/table';
 
 import { MembersService } from './../../../core/service/members/members.service';
 import { Members } from './../../../core/models/members.model';
+import { timeout } from 'rxjs/operators';
 
 
 @Component({
@@ -36,7 +37,7 @@ export class MemberListComponent implements OnInit {
   }
 
   fetchMembers() {
-    this.memberService.getAllMembers().subscribe(member => {
+    this.memberService.getAllMembers().pipe(timeout(30000)).subscribe(member => {
       this.members = member;
 
       this.dataSource = new MatTableDataSource(this.members);

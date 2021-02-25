@@ -1,35 +1,31 @@
-<div class="grid-container">
-    <mat-grid-list cols="2" rowHeight="350px">
-        <mat-grid-tile *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows">
-            <mat-card class="dashboard-card">
-                <mat-card-header>
-                    <mat-card-title>
-                        {{card.title}}
-                    </mat-card-title>
-                </mat-card-header>
-                <mat-card-content class="dashboard-card-content">
-                    <div *ngIf="card.id==='1'">
-                        <p class="welcome-description">
-                            Iglesia Pentecostal Unida de Colombia sede San Judas en Cali.
-                        </p>
-                        <p class="welcome-description">
-                            Tenemos como objetivo principal la predicación del evangelio
-                        </p>
-                        <p class="welcome-description">
-                            "edificados sobre el fundamento de los apóstoles y profetas, siendo la principal piedra del
-                            ángulo Jesucristo mismo" (Efesios 2:20)
-                        </p>
+<div class="welcome-grid grid-container">
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>Bienvenidos</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <p class="welcome-description">
+                Iglesia Pentecostal Unida de Colombia sede San Judas en Cali.
+            </p>
+            <p class="welcome-description">
+                Tenemos como objetivo principal la predicación del evangelio
+            </p>
+            <p class="welcome-description">
+                "edificados sobre el fundamento de los apóstoles y profetas" (Efesios 2:20)
+            </p>
+        </mat-card-content>
 
-                    </div>
-                    <div *ngIf="card.id==='2'">
-                        <p><strong>Martes:</strong> 7:00 p.m. </p>
-                        <p><strong>Jueves:</strong> 7:00 p.m. </p>
-                        <p><strong>Sabados:</strong> 7:00 p.m. </p>
-                        <p><strong>Domingo:</strong> 10:00 a.m. </p>
-                        <p><strong>Domingo:</strong> 6:00 p.m. </p>
-                    </div>
-                </mat-card-content>
-            </mat-card>
-        </mat-grid-tile>
-    </mat-grid-list>
+    </mat-card>
+
+    <mat-card>
+        <mat-card-title>Horarios de culto</mat-card-title>
+        <mat-card-content>
+            <p><strong>Martes:</strong> 7:00 p.m. </p>
+            <p><strong>Jueves:</strong> 7:00 p.m. </p>
+            <p><strong>Sabados:</strong> 7:00 p.m. </p>
+            <p><strong>Domingo:</strong> 10:00 a.m. </p>
+            <p><strong>Domingo:</strong> 6:00 p.m. </p>
+        </mat-card-content>
+
+    </mat-card>
 </div>

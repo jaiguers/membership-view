@@ -2,6 +2,23 @@
   margin: 20px;
 }
 
+.welcome-grid{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 50px 20px;
+}
+
+@media (min-width: 576px){
+    .welcome-grid{
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .container {
+    max-width: 1110px;
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+}
+
 .dashboard-card {
   position: absolute;
   top: 15px;

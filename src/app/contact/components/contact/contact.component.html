@@ -1,67 +1,60 @@
-<h3>Contacto</h3>
-<mat-grid-list cols="2" rowHeight="350px">
-    <mat-grid-tile colspan="1" rowspan="1">
-        <form [formGroup]="form" (ngSubmit)="sendEmail($event)">
-            <mat-card class="contact-card">
-                <mat-card-header>
-                    <mat-card-title>Escríbenos</mat-card-title>
-                </mat-card-header>
-                <mat-card-content>
-                    <div class="row">
-                        <div class="col-xs">
-                            <mat-form-field>
-                                <input matInput type="text" placeholder="Asunto" formControlName="subject">
-                            </mat-form-field>
-                        </div>
+<div class="contact-grid grid-container">
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>Contacto</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <form [formGroup]="form" (ngSubmit)="sendEmail($event)">
+
+                <div class="row">
+                    <div class="col-xs">
+                        <mat-form-field>
+                            <input matInput type="text" placeholder="Asunto" formControlName="subject">
+                        </mat-form-field>
                     </div>
-                    <div class="row">
-                        <div class="col-xs">
-                            <mat-form-field>
-                                <input matInput placeholder="Email" formControlName="email">
-                            </mat-form-field>
-                        </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs">
+                        <mat-form-field>
+                            <input matInput placeholder="Email" formControlName="email">
+                        </mat-form-field>
                     </div>
-                    <div class="row">
-                        <div class="col-xs">
-                            <mat-form-field>
-                                <textarea matInput placeholder="Mensaje" formControlName="message"></textarea>
-                            </mat-form-field>
-                        </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs">
+                        <mat-form-field>
+                            <textarea matInput placeholder="Mensaje" formControlName="message"></textarea>
+                        </mat-form-field>
                     </div>
-                </mat-card-content>
-                <mat-card-actions>
-                    <button mat-raised-button [disabled]="form.invalid" type="submit">Enviar</button>
-                </mat-card-actions>
-            </mat-card>
-        </form>
-    </mat-grid-tile>
-    <mat-grid-tile colspan="1" rowspan="1">
-        <mat-card class="contact-card">
-            <mat-card-header>
-                <mat-card-title>
-                    IPUC San Judas
-                </mat-card-title>
-            </mat-card-header>
-            <mat-card-content>
-                <p>
-                    ¿Necesitas que te visitemos, oración, consejeria familiar, REFAM, evangelismo?
-                </p>
-                <p>
-                    Puedes visitarnos en la siguiente dirección: <br>
-                    <strong>Calle 23 # 42 - 19 B/ San Judas</strong>
-                </p>
-                <p>
-                    Puedes escribirnos a: <br>
-                    <strong>ipucsanjudas@gmail.com</strong>
-                </p>
-                <p>
-                    Otras formas de contactarnos:<br>
-                </p>
-                <p>
-                    <a href="https://www.facebook.com/IpucSanJudas" target="_blank">Facebook</a><br>
-                    <a href="https://www.instagram.com/ipucsanjudasoficial" target="_blank">Instagram</a><br>
-                </p>
-            </mat-card-content>
-        </mat-card>
-    </mat-grid-tile>
-</mat-grid-list>
+                </div>
+                <button mat-raised-button [disabled]="form.invalid" type="submit">Enviar</button>
+            </form>
+        </mat-card-content>
+
+    </mat-card>
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>PUC San Judas</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <p>
+                ¿Necesitas que te visitemos, oración, consejeria familiar, REFAM, evangelismo?
+            </p>
+            <p>
+                Puedes visitarnos en la siguiente dirección: <br>
+                <strong>Calle 23 # 42 - 19 B/ San Judas</strong>
+            </p>
+            <p>
+                Puedes escribirnos a: <br>
+                <strong>ipucsanjudas@gmail.com</strong>
+            </p>
+            <p>
+                Otras formas de contactarnos:<br>
+            </p>
+            <p>
+                <a href="https://www.facebook.com/IpucSanJudas" target="_blank">Facebook</a><br>
+                <a href="https://www.instagram.com/ipucsanjudasoficial" target="_blank">Instagram</a><br>
+            </p>
+        </mat-card-content>
+
+    </mat-card>
